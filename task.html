@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .resulte {
+            height: 21px;
+            width: 171px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+       .myCanvas{
+           border:1px solid #000000;
+           margin-top: 50px;
+       }
+      
+      .daletecanvas{
+         background-color:white;
+      }
+
+    </style>
+</head>
+<body>
+    <div>
+    <label>enter boll radiuse : </label> <br/>
+    <input class="radiuse" type="text" ><br/>
+    <div class="resulte"></div><br/>
+    <button onclick="calculate()">calculate</button>
+    </div>
+    
+
+    <canvas class="myCanvas" width="500" height="500" >
+        </canvas><br/>
+        <button onclick="dalete();">dalete</button>
+   
+
+    <script>
+    
+    
+    function calculate(){
+
+      var input=document.querySelector(".radiuse");
+      var val = input.value;
+      var vol = ((4*Math.PI*Math.pow(val,3))/3);  
+
+      if(isNaN(val)){
+
+          alert("num only");
+          return;     
+      }
+      var resulte=document.querySelector(".resulte");
+      resulte.innerHTML=vol;
+      
+      drow(val);
+     
+    }
+     function drow(a){
+     if(a>250){
+         alert("Select a radius smaller than 250");
+         return;
+     }
+     var c = document.querySelector(".myCanvas");
+     var ctx = c.getContext("2d");
+     ctx.beginPath();
+     ctx.arc(250, 250, a, 0, 2 * Math.PI);
+     ctx.stroke();
+     }
+
+     function dalete(){
+     //איך צריך לעשות את זה ?
+     var ctx = c.getContext("2d");
+     ctx.context.clearRect(0, 0, 250, 250);
+        
+
+     }
+    
+    </script>
+</body>
+</html>
+
+echo "# task-a" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/shmayaz/task-a.git
+git push -u origin master
